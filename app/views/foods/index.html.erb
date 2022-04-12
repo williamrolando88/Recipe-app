@@ -1,7 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Foods</h1>
-<% if current_user%>
+<% if user_signed_in? %>
   <div class="text-center text-lg">
     <%= link_to 'New Food', new_food_path %>
   </div>
@@ -13,13 +11,13 @@
       <th>Food</th>
       <th>Measurement unit</th>
       <th>Unit Price</th>
-      <% if current_user%>
+      <% if user_signed_in? %>
         <th>Actions</th>
       <% end %>
     </tr>
   </thead>
   <tbody>
-    <% if @foods.length === 0 %>
+    <% if @foods.empty? %>
     <tr>
       <td colspan="4">No foods found</td>
     </tr>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :foods, only: [:index, :show, :new, :create, :destroy]
+  resources :foods, except: [:edit, :update]
   devise_for :users
   devise_for :users, skip: :all
 

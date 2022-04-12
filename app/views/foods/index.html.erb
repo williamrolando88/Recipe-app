@@ -1,0 +1,37 @@
+<h1>Foods</h1>
+<% if user_signed_in? %>
+  <div class="text-center text-lg">
+    <%= link_to 'New Food', new_food_path %>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Measurement unit</th>
+      <th>Unit Price</th>
+      <% if user_signed_in? %>
+        <th>Actions</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @foods.empty? %>
+    <tr>
+      <td colspan="4">No foods found</td>
+    </tr>
+    <% else %>
+      <% @foods.each do |food| %>
+        <tr class="text-center">
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %></td>
+          <% if current_user%>
+            <td><%= button_to "Delete", food, method: :delete %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

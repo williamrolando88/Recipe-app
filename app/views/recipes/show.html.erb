@@ -7,7 +7,7 @@
 </div>
 
 <%= render @recipe %>
-<% if can? :destroy, @food %>
+<% if can? :destroy, @recipe %>
 <%= render 'form_add_food' %>
   <% end %>
 

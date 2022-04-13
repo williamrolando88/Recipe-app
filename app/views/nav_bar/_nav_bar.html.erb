@@ -1,22 +1,26 @@
 <div class="flex justify-between items-center pr-8 bg-neutral-400 h-14 text-xl">
   <%= link_to 'Recipe App', '/' %>
-  <% unless user_signed_in? %>
     <ul class="flex flex-row gap-x-8">
       <li> 
-        <%= link_to 'Sign Up', new_user_registration_path%> 
+        <%= link_to 'Public Recipes', root_path%> 
       </li>
-      <li>
-        <%= link_to 'Sign In', new_user_session_path %>
-      </li>
+      <% unless user_signed_in? %>
+        <li> 
+          <%= link_to 'Sign Up', new_user_registration_path%> 
+        </li>
+        <li>
+          <%= link_to 'Sign In', new_user_session_path %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'New recipe', new_recipe_path %>
+        </li>
+        <li>
+          <%= link_to 'My recipes', recipes_path %>
+        </li>
+        <li> 
+          <%= button_to 'Sign Out', destroy_user_session_path, :method => :delete %> 
+        </li>
+      <% end %>
     </ul>
-  <% else %>
-    <ul class="flex flex-row gap-x-8">
-      <li> 
-        <%= button_to 'Sign Out', destroy_user_session_path, :method => :delete %> 
-      </li>
-      <li>
-        <%= link_to 'New recipe', new_recipe_path %>
-      </li>
-    </ul>
-  <% end %>
 </div>

@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @recipe %>
 
 <div>
@@ -9,3 +7,7 @@
     <%= button_to "Destroy this recipe", @recipe, method: :delete %>
   <% end %>
 </div>
+
+<%= render 'form_add_food' %>
+
+<%= render 'recipe_foods' %>

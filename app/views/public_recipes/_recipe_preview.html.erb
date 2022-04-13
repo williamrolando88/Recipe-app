@@ -9,17 +9,16 @@
       <%= recipe.user.name %>
     </p>
   </div>
-  <%# todo: create the queries to show the required information %>
   <div class='flex flex-col items-start w-1/2'>
     <p>
       <strong>Total food items:</strong>
-      number
-      <%# <%= recipe.user.name %> %>
+      <%= RecipeFood.total_ingredients(recipe.id) %>
     </p>
     <p>
       <strong>Total price:</strong>
-      price
-      <%# <%= recipe.user.name %> %>
+      $
+      <%= RecipeFood.total_ingredients_cost(recipe.id) %>
+      USD
     </p>
   </div>
 </div>

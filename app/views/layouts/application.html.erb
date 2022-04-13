@@ -9,12 +9,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
+  <body class='flex flex-col items-center'>
 
-    <%= render 'nav_bar/nav_bar' %>
+    <div class='w-full'><%= render 'nav_bar/nav_bar' %></div>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class='w-4/5'>
+      <%= yield %>
+    </div>
   </body>
 </html>

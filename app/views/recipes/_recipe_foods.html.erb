@@ -1,5 +1,14 @@
 <% @foods.each do |food| %>
   <p>
-    <%= food.name %>
+    <%= food.food.name %>
+  </p>
+  <p>
+    <%= food.quantity %>
+  </p>
+  <p>
+    <%= food.food.measurement_unit %>
+  </p>
+  <p>
+    <%= food.food.price.round(2) %>
   </p>
 <% end %>

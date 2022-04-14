@@ -1,5 +1,4 @@
 class RecipeFoodsController < ApplicationController
-  
   before_action :set_recipe_food, only: %i[destroy]
 
   # GET /recipe_foods/new

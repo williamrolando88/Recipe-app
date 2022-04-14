@@ -58,7 +58,7 @@ group :development do
   gem 'web-console'
 
   
-  gem "bullet", "~> 7.0"
+  # gem "bullet", "~> 7.0"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

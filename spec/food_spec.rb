@@ -3,9 +3,9 @@ require 'cancan/matchers'
 
 RSpec.describe Food, type: :model do
   before :each do
-    @user1 = User.create(name: 'Mre', email:'mre@gmail.com', password:'123456')
+    @user1 = User.create(name: 'Mre', email: 'mre@gmail.com', password: '123456')
     @user1.save!
-    @food = Food.new(name:'Apple', measurement_unit:'Unit', price:55)
+    @food = Food.new(name: 'Apple', measurement_unit: 'Unit', price: 55)
   end
 
   it 'should not be null' do

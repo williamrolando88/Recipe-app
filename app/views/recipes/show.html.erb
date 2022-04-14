@@ -1,13 +1,14 @@
-<%= render @recipe %>
-
-<div>
-  <%= link_to "Back to recipes", recipes_path %>
+<div class='flex justify-between'>
+  <%= link_to "Back to recipes", url_for(:back), class:'border rounded bg-neutral-200 px-2 py-1 hover:bg-neutral-400 my-6' %>
 
   <% if can? :destroy, @recipe %>
-    <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+    <%= button_to "Destroy this recipe", @recipe, method: :delete, class:'border rounded bg-red-500 px-2 py-1 hover:bg-red-200 my-6 hover:text-red-800' %>
   <% end %>
 </div>
 
+<%= render @recipe %>
+<% if can? :destroy, @recipe %>
 <%= render 'form_add_food' %>
+  <% end %>
 
 <%= render 'recipe_foods' %>

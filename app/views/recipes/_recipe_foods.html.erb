@@ -1,5 +1,37 @@
-<% @foods.each do |food| %>
-  <p>
-    <%= food.name %>
-  </p>
-<% end %>
+<div class='text-center mt-10'>
+  <% if @foods.empty? %>
+    <p class='italic'>
+      No ingredients have been added to this recipe yet.
+    </p>
+  <% else %>
+  <table class='table-auto w-full border border-slate-600 border-separate'>
+    <thead>
+      <tr>
+        <th class='border bg-neutral-200 border-slate-600'>Ingredient</th>
+        <th class='border bg-neutral-200 border-slate-600'>Quantity</th>
+        <th class='border bg-neutral-200 border-slate-600'>Unit</th>
+        <th class='border bg-neutral-200 border-slate-600'>Value</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td class='border border-slate-600'>
+            <%= food.food.name %>
+          </td>
+          <td class='border border-slate-600'>
+            <%= food.quantity %>
+          </td>
+          <td class='border border-slate-600'>
+            <%= food.food.measurement_unit %>
+          </td>
+          <td class='border border-slate-600'>
+            <%= (food.food.price * food.quantity).round(2) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>

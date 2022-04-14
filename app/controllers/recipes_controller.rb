@@ -43,6 +43,11 @@ class RecipesController < ApplicationController
     end
   end
 
+  def shopping_list
+    @ingredient = RecipeFood.where(recipe_id: params[:recipe_id])
+    @total_price = @ingredient.inject(0) { |sum, e| sum + (e.food.price * e.quantity) }
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.

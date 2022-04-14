@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1 or /recipes/1.json
   def show
     @recipe = Recipe.find(params[:id])
-    @foods = RecipeFood.where(recipe_id: @recipe.id)
+    @foods = RecipeFood.includes([:food]).where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new
@@ -44,7 +44,7 @@ class RecipesController < ApplicationController
   end
 
   def shopping_list
-    @ingredient = RecipeFood.where(recipe_id: params[:recipe_id])
+    @ingredient = RecipeFood.includes([:food]).where(recipe_id: params[:recipe_id])
     @total_price = @ingredient.inject(0) { |sum, e| sum + (e.food.price * e.quantity) }
   end
 

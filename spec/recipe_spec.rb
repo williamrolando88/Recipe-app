@@ -36,5 +36,4 @@ RSpec.describe 'Recipe page', type: :feature do
     click_on 'Pizza'
     expect(page).to have_content('Preparation time:')
   end
-
 end

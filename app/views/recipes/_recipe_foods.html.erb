@@ -24,7 +24,7 @@
             <tr class="text-center">
               <td class='border border-slate-600'><%= ing.food.name %></td>
               <td class='border border-slate-600'><%= ing.quantity %> <%= ing.food.measurement_unit %></td>
-              <td class='border border-slate-600'><%= ing.food.price * ing.quantity %></td>
+              <td class='border border-slate-600'>$<%= (ing.food.price * ing.quantity).round(2) %></td>
               <% if user_signed_in? %>
                 <td class='flex justify-evenly border border-slate-600 pt-4 pb-4'>
                   <%= link_to "Modify", edit_recipe_food_path(ing), class: 'my-0 border rounded bg-blue-600 text-white px-2 py-1 hover:bg-neutral-400 my-6' %>

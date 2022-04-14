@@ -27,7 +27,7 @@
             <tr class="text-center">
               <td class='border border-slate-600'><%= food.name %></td>
               <td class='border border-slate-600'><%= food.measurement_unit %></td>
-              <td class='border border-slate-600'>$<%= food.price %></td>
+              <td class='border border-slate-600'>$<%= food.price.round(2) %></td>
               <% if user_signed_in? %>
                 <td class='flex justify-evenly border border-slate-600 pt-2 pb-2'>
                   <%= button_to "Delete", food, method: :delete, class: 'my-0 border rounded bg-red-500 text-white px-2 py-1 hover:bg-neutral-400 my-6' %>

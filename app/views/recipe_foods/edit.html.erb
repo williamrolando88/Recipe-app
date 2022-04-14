@@ -1,5 +1,5 @@
 <div class='flex justify-between'>
-  <%= link_to "Back to recipes", recipes_path, class:'border rounded bg-neutral-200 px-2 py-1 hover:bg-neutral-400 my-6' %>
+  <%= link_to "Cancel", url_for(:back), class:'border rounded bg-neutral-200 px-2 py-1 hover:bg-neutral-400 my-6' %>
 </div>
 
 <h2 class='text-4xl font-semibold font-serif text-center'>Edit Ingredient</h2>
@@ -19,6 +19,6 @@
   </div>
 
   <div class='mt-4'>
-    <%= form.submit 'Edit', class:'border px-2 py-1 rounded bg-green-400 hover:bg-green-200 w-fit font-medium text-white hover:text-green-800 cursor-pointer'%>
+    <%= form.submit 'Confirm', class:'border px-2 py-1 rounded bg-green-400 hover:bg-green-200 w-fit font-medium text-white hover:text-green-800 cursor-pointer'%>
   </div>
 <% end %>

@@ -1,0 +1,25 @@
+
+<div class="flex flex-col justify-between">
+
+  <div class="flex justify-between">
+    <%= link_to "Back to recipes", url_for(:back), class:'border rounded bg-neutral-200 px-2 py-1 hover:bg-neutral-400 my-6' %>
+
+    <% if can? :destroy, @recipe %>
+      <%= button_to "Destroy this recipe", @recipe, method: :delete, class:'border rounded text-white bg-red-500 px-2 py-1 hover:bg-red-200 my-6 hover:text-red-800' %>
+    <% end %>
+  </div>
+
+  <%= render @recipe %>
+
+  <div>
+    <div class="flex justify-between">
+      <% if can? :destroy, @recipe %>
+        <a href="/shopping_list/<%= @recipe.id %>" class='border rounded bg-emerald-600 text-white px-2 py-1 hover:bg-neutral-400 my-6'>Generate Shopping List</a>
+        <a href="/recipe_foods/<%= @recipe.id %>" class='border rounded bg-emerald-600 text-white px-2 py-1 hover:bg-neutral-400 my-6'>Add ingredient</a>
+      <% end %>
+    </div>
+  </div>
+  
+  <%= render 'recipe_foods' %>
+
+</div>

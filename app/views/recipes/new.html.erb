@@ -1,0 +1,8 @@
+<div class='flex justify-between'>
+  <%= link_to "Back to recipes", recipes_path, class:'border rounded bg-neutral-200 px-2 py-1 hover:bg-neutral-400 my-6' %>
+</div>
+
+
+<h2 class='text-4xl font-semibold font-serif text-center'>New Recipe</h2>
+
+<%= render "form", recipe: @recipe %>

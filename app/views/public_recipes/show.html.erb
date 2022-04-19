@@ -1,0 +1,8 @@
+<div class='mt-20'>
+  <div class='border p-4 bg-neutral-200 w-fit flex items-center gap-2 cursor-pointer hover:bg-neutral-400'>
+    <strong class='text-xl'><</strong>
+    <%= link_to "Back to public recipes", public_recipes_path %>
+  </div>
+
+  <%= render 'recipe_full', recipe: @recipe %>
+</div>

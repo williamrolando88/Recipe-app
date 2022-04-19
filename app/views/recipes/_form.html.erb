@@ -1,0 +1,42 @@
+<%= form_with(model: recipe) do |form| %>
+  <% if recipe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='mt-4'>
+    <%= form.label :name, style: "display: block", class:'font-semibold text-xl' %>
+    <%= form.text_field :name, class:'border px-2 py-1 rounded-md mt-2' %>
+  </div>
+
+  <div class='mt-4'>
+    <%= form.label :preparation_time, style: "display: block", class:'font-semibold text-xl' %>
+    <%= form.number_field :preparation_time, class:'border px-2 py-1 rounded-md mt-2' %>
+  </div>
+
+  <div class='mt-4'>
+    <%= form.label :cooking_time, style: "display: block", class:'font-semibold text-xl' %>
+    <%= form.number_field :cooking_time, class:'border px-2 py-1 rounded-md mt-2' %>
+  </div>
+
+  <div class='mt-4'>
+    <%= form.label :description, style: "display: block", class:'font-semibold text-xl' %>
+    <%= form.text_area :description, class:'w-60 h-40 border rounded-md p-2 mt-2' %>
+  </div>
+
+  <div class='mt-4 flex items-center gap-2'>
+    <%= form.label :public, style: "display: block", class:'font-semibold text-xl' %>
+    <%= form.check_box :public, class:'h-4 w-4' %>
+  </div>
+
+  <div class='mt-4'>
+    <%= form.submit 'Add recipe', class:'border px-2 py-1 rounded bg-green-400 hover:bg-green-200 w-fit font-medium text-white hover:text-green-800 cursor-pointer' %>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+
+<% if user_signed_in? %>
+  <div class="flex flex-row justify-end text-center text-lg">
+    <%= link_to 'New Food', new_food_path, class: 'border rounded bg-green-500 text-white px-2 py-1 hover:bg-neutral-400 my-6' %>
+  </div>
+<% end %>
+
+<table class='table-auto w-full border border-slate-600 border-separate'>
+    <thead>
+      <tr>
+        <th class='border bg-neutral-200 border-slate-600'>Food</th>
+        <th class='border bg-neutral-200 border-slate-600'>Measurement unit</th>
+        <th class='border bg-neutral-200 border-slate-600'>Unit Price</th>
+        <% if user_signed_in? %>
+          <th class='border bg-neutral-200 border-slate-600'>Actions</th>
+        <% end %>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% if @foods.empty? %>
+        <tr class="text-center">
+          <td colspan="4">No foods found</td>
+        </tr>
+        <% else %>
+          <% @foods.each do |food| %>
+            <tr class="text-center">
+              <td class='border border-slate-600'><%= food.name %></td>
+              <td class='border border-slate-600'><%= food.measurement_unit %></td>
+              <td class='border border-slate-600'>$<%= food.price.round(2) %></td>
+              <% if user_signed_in? %>
+                <td class='flex justify-evenly border border-slate-600 pt-2 pb-2'>
+                  <%= button_to "Delete", food, method: :delete, class: 'my-0 border rounded bg-red-500 text-white px-2 py-1 hover:bg-neutral-400 my-6' %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+    </tbody>
+  </table>

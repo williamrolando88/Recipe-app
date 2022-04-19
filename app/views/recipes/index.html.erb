@@ -1,0 +1,7 @@
+<h2 class='text-4xl font-semibold font-serif my-6 text-center'>My Recipes</h2>
+
+<div id="recipes", class='flex flex-col gap-6'>
+  <% @recipes.each do |recipe| %>
+    <%= render 'recipe_preview', recipe: recipe %>
+  <% end %>
+</div>

@@ -1,0 +1,40 @@
+<div class='text-center mt-10'>
+  <% if @foods.empty? %>
+    <p class='italic'>
+      No ingredients have been added to this recipe yet.
+    </p>
+  <% else %>
+  <table class='table-auto w-full border border-slate-600 border-separate'>
+    <thead>
+      <tr>
+        <th class='border bg-neutral-200 border-slate-600'>Ingredient</th>
+        <th class='border bg-neutral-200 border-slate-600'>Quantity</th>
+        <th class='border bg-neutral-200 border-slate-600'>Value</th>
+        <th class='border bg-neutral-200 border-slate-600'>Action</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% if @recipe.recipe_foods.length === 0 %>
+        <tr class="text-center">
+          <td colspan="4">No ingredients found</td>
+        </tr>
+        <% else %>
+          <% @recipe.recipe_foods.each do |ing| %>
+            <tr class="text-center">
+              <td class='border border-slate-600'><%= ing.food.name %></td>
+              <td class='border border-slate-600'><%= ing.quantity %> <%= ing.food.measurement_unit %></td>
+              <td class='border border-slate-600'>$<%= (ing.food.price * ing.quantity).round(2) %></td>
+              <% if user_signed_in? %>
+                <td class='flex justify-evenly border border-slate-600 pt-4 pb-4'>
+                  <%= link_to "Modify", edit_recipe_food_path(ing), class: 'my-0 border rounded bg-blue-600 text-white px-2 py-1 hover:bg-neutral-400 my-6' %>
+                  <%= button_to "Delete", ing, method: :delete, class: 'my-0 border rounded bg-red-500 text-white px-2 py-1 hover:bg-neutral-400 my-6' %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>

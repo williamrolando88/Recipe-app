@@ -1,0 +1,46 @@
+<div id="<%= dom_id recipe %>">
+  <h2 class='text-center text-4xl font-bold'>
+    <%= recipe.name %>
+  </h2>
+
+  <p class='italic text-neutral-400 text-center mb-10'>
+    <strong>By:</strong>
+    <%= recipe.user.name %>
+  </p>
+
+  <div class='flex flex-col gap-4 text-lg'>
+    <div class='flex justify-between'>
+      <p class='text-xl'>
+        <strong>Preparation time:</strong>
+        <%= recipe.preparation_time %>
+      </p>
+
+      <div class='flex gap-2'>
+        <p class='text-xl'>
+          <strong>Public:</strong>
+        </p>
+        <div class="relative">
+          <% if recipe.public %>
+            <div class="block bg-emerald-600 w-14 h-8 rounded-full"></div>
+            <div class="dot absolute right-1 top-1 bg-white w-6 h-6 rounded-full"></div>
+          <% else %>
+            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+            <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full"></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <p class='text-xl'>
+      <strong>Cooking time:</strong>
+      <%= recipe.cooking_time %>
+    </p>
+    <div>
+      <p class='text-xl'>
+        <strong>Description:</strong>
+      </p>
+      <p>
+        <%= recipe.description %>
+      </p>
+    </div>
+  </div>
+</div>

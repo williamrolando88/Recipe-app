@@ -10,6 +10,11 @@
 - PostgreSQL
 - Linters
 
+## 📱🖥️ Live Demo
+
+You can see a live demo of this app in this [link](https://wr88-recipe-app.herokuapp.com/)
+
+
 ## 🖥️ Install
 
 - Install Ruby based on your OS from [HERE](https://www.ruby-lang.org/en/downloads/).
